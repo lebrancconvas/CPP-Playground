@@ -8,8 +8,11 @@ int main()
 	// &a is the address of variable "a". and * is the symbol for access the address value. 
 	int *adda = &a;
 
+	// Access the address of pointer variable. 
+	int **adda2 = &adda;
+
 	// *adda is how to access the value of variable that is in the address "adda". 
 	int addavalue = *adda;
 
-	std::cout << addavalue << std::endl; 
+	std::cout << adda2 << std::endl;
 }

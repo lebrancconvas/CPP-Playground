@@ -7,12 +7,13 @@ class Creature
 		void setName(std::string _name) {name = _name;}
 		void setHeight(int _height) {height = _height;}
 		void setWeight(int _weight) {weight = _weight;}
-		void setDefaultInit() {initial = false;}
+		void setInit(bool _initial) {initial = _initial;}
 
 
 		std::string getName() {return name;}
 		int getHeight() {return height;}
 		int getWeight() {return weight;}
+		bool getInit() {return initial;}
 
 		virtual void init()
 		{
@@ -36,26 +37,19 @@ class Creature
 class Titan : public Creature
 {
 	public:
-		//Setter Method. 
-
-
-		//Getter Method. 
-		
-		
-		//Initialized Method. 
-		void titanInit()
+		void init()
 		{
-			init = true;
+			setInit(true);
 			std::cout << "Titan is initialized success." << std::endl;
 		}
 
-		void titanDestroy()
+		void destroy()
 		{
-			if(init == true)
+			if(getInit() == true)
 			{
-				if(height < 3000 && weight < 5000)
+				if(getHeight() < 3000 && getWeight() < 5000)
 				{
-					init = false;
+					setInit(false);
 					std::cout << "Destroy Success." << std::endl;
 				}
 				else
@@ -73,17 +67,19 @@ class Titan : public Creature
 		std::string name;
 		int height;
 		int weight;
-		bool init;
+		bool initial;
 };
 
 int main()
 {
 	Titan titanCommander;
 	titanCommander.setName("Titan Commander");
-	titanCommander.setHeight(2000);
+	titanCommander.setHeight(1800);
 	titanCommander.setWeight(2500);
-	titanCommander.titanInit();
-	titanCommander.titanDestroy();
+	titanCommander.init();
+	titanCommander.destroy();
+	// std::cout << titanCommander.getHeight() << std::endl;
+	// std::cout << titanCommander.getWeight() << std::endl;
 
 	return 0;
 }

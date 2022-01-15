@@ -27,8 +27,9 @@ class Titan
 		{
 			if(init == true)
 			{
-				if(height >= 3000 && weight >= 5000)
+				if(height < 3000 && weight < 5000)
 				{
+					init = false;
 					std::cout << "Destroy Success." << std::endl;
 				}
 				else

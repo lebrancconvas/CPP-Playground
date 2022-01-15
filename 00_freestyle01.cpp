@@ -62,24 +62,18 @@ class Titan : public Creature
 				std::cout << "Please Init your Titan first." << std::endl;
 			}
 		}
-
-	private:
-		std::string name;
-		int height;
-		int weight;
-		bool initial;
 };
 
 int main()
 {
 	Titan titanCommander;
+
 	titanCommander.setName("Titan Commander");
 	titanCommander.setHeight(1800);
 	titanCommander.setWeight(2500);
+	
 	titanCommander.init();
 	titanCommander.destroy();
-	// std::cout << titanCommander.getHeight() << std::endl;
-	// std::cout << titanCommander.getWeight() << std::endl;
 
 	return 0;
 }

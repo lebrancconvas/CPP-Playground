@@ -23,7 +23,7 @@ class Titan
 			std::cout << "Titan is initialized success." << std::endl;
 		}
 
-		void destroy()
+		void titanDestroy()
 		{
 			if(init == true)
 			{
@@ -56,7 +56,7 @@ int main()
 	titanCommander.setHeight(2000);
 	titanCommander.setWeight(2500);
 	titanCommander.titanInit();
-	titanCommander.destroy();
+	titanCommander.titanDestroy();
 
 	return 0;
 }

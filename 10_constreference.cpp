@@ -24,5 +24,6 @@ int main()
 	Window window;
 	std::cout << "Device ID: " << samsung.getID() << std::endl;
 	window.setup(samsung);
+	window.setup(Device(11));
 	return 0;
 }

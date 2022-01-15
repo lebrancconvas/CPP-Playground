@@ -1,20 +1,46 @@
 #include <iostream>
 #include <string>
 
-class Titan
+class Creature
 {
 	public:
-		//Setter Method. 
 		void setName(std::string _name) {name = _name;}
 		void setHeight(int _height) {height = _height;}
 		void setWeight(int _weight) {weight = _weight;}
-		void setDefaultInit() {init = false;}
+		void setDefaultInit() {initial = false;}
 
-		//Getter Method. 
+
 		std::string getName() {return name;}
 		int getHeight() {return height;}
 		int getWeight() {return weight;}
-		bool getInit() {return init;}
+
+		virtual void init()
+		{
+			initial = true;
+			std::cout << "Creature is initialized." << std::endl;
+		}
+
+		virtual void destroy()
+		{
+			initial = false;
+			std::cout << "Creature is destroyed." << std::endl;
+		}
+
+	private:
+		std::string name;
+		int height;
+		int weight;
+		bool initial;
+};
+
+class Titan : public Creature
+{
+	public:
+		//Setter Method. 
+
+
+		//Getter Method. 
+		
 		
 		//Initialized Method. 
 		void titanInit()

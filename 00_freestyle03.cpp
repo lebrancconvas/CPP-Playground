@@ -16,6 +16,18 @@ class Shape
 		float height;
 };
 
+class Rectangle : public Shape 
+{
+	public:
+		int getArea() {return getWidth() * getHeight();}
+};
+
+class Triangle : public Shape 
+{
+	public:
+		int getArea() {return (getWidth() * getHeight()) / 2;}
+};
+
 class Stationary
 {
 	public:
@@ -35,6 +47,21 @@ class Stationary
 		std::string stickMaterial;
 		std::string coreMaterial;
 		float length;
+};
+
+class Pencil : public Stationary
+{
+	
+};
+
+class Pen : public Stationary
+{
+	public:
+		void setHasInk(bool _hasInk) {hasInk = _hasInk;}
+
+		bool getHasInk() {return hasInk;}
+	private:
+		bool hasInk;
 };
 
 int main()

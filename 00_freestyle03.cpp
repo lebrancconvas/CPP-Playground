@@ -7,10 +7,13 @@ class Shape
 		void setWidth(float _width) {width = _width;} 
 		void setHeight(float _height) {height = _height;} 
 
-		int getWidth() {return width;}
-		int getHeight() {return height;}
+		int getWidth() const {return width;}
+		int getHeight() const {return height;}
 
-		virtual int getArea();
+		virtual int getArea()
+		{
+			return width * height;
+		}
 	private:
 		float width;
 		float height;
@@ -51,7 +54,14 @@ class Stationary
 
 class Pencil : public Stationary
 {
-	
+	public:
+		void draw(const Shape& shape)
+		{
+			if(shape.getWidth() >= 0 && shape.getHeight() >= 0)
+			{
+				std::cout << "Drawing Shape Success." << std::endl;
+			}
+		}
 };
 
 class Pen : public Stationary
@@ -60,12 +70,40 @@ class Pen : public Stationary
 		void setHasInk(bool _hasInk) {hasInk = _hasInk;}
 
 		bool getHasInk() {return hasInk;}
+
+		void draw(const Shape& shape)
+		{
+			if(getHasInk())
+			{
+				if(shape.getWidth() >= 0 && shape.getHeight() >= 0)
+				{
+					std::cout << "Drawing Shape Success" << std::endl;
+				}
+				else
+				{
+					std::cout << "Can't Draw Null Shape." << std::endl;
+				}
+			}
+			else
+			{
+				std::cout << "Drawing Failed." << std::endl;
+			}
+		}
 	private:
 		bool hasInk;
 };
 
 int main()
 {
-	// pencil.draw(shape); 
+	Pencil rotting;
+	rotting.setLength(10);
+	rotting.setMaterial("Wood", "Graphite");
+
+	Rectangle rect;
+	rect.setWidth(10);
+	rect.setHeight(20);
+
+	rotting.draw(rect);
+
 	return 0;
 }

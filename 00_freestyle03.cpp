@@ -57,9 +57,13 @@ class Pencil : public Stationary
 	public:
 		void draw(const Shape& shape)
 		{
-			if(shape.getWidth() >= 0 && shape.getHeight() >= 0)
+			if(shape.getWidth() > 0 && shape.getHeight() > 0)
 			{
 				std::cout << "Drawing Shape Success." << std::endl;
+			}
+			else
+			{
+				std::cout << "Can't Draw Null Shape." << std::endl;
 			}
 		}
 };
@@ -75,7 +79,7 @@ class Pen : public Stationary
 		{
 			if(getHasInk())
 			{
-				if(shape.getWidth() >= 0 && shape.getHeight() >= 0)
+				if(shape.getWidth() > 0 && shape.getHeight() > 0)
 				{
 					std::cout << "Drawing Shape Success" << std::endl;
 				}
@@ -104,6 +108,9 @@ int main()
 	rect.setHeight(20);
 
 	rotting.draw(rect);
+	
+	int areaRect = rect.getArea();
+	std::cout << "Area of Rectangle: " << areaRect << std::endl;
 
 	return 0;
 }
